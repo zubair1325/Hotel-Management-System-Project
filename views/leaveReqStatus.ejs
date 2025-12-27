@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin: Manage Leave Requests</title>
+    <style>
+      /* Resetting Margins and Padding */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #79826B;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #E3E3C4;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #556043;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        border: 1px solid #ddd;
+      }
+
+      table thead {
+        background-color: #556043;
+        color: #fff;
+      }
+
+      table th,
+      table td {
+        text-align: left;
+        padding: 10px;
+      }
+
+      table tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+
+      
+      table th {
+        font-weight: bold;
+        border: 1px solid #ddd;
+      }
+
+      table td {
+        border: 1px solid #ddd;
+      }
+
+      /* Buttons Styling */
+      .approve-btn,
+      .reject-btn {
+        padding: 8px 12px;
+        border: none;
+        border-radius: 5px;
+        font-size: 14px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      .approve-btn {
+        background-color: #28a745;
+        color: white;
+        transition: background-color 0.3s ease;
+      }
+
+      .approve-btn:hover {
+        background-color: #218838;
+      }
+
+      .reject-btn {
+        background-color: #dc3545;
+        color: white;
+        transition: background-color 0.3s ease;
+      }
+
+      .reject-btn:hover {
+        background-color: #c82333;
+      }
+
+      /* Status Styling */
+      .approved {
+        color: #28a745;
+        font-weight: bold;
+      }
+
+      .rejected {
+        color: #dc3545;
+        font-weight: bold;
+      }
+
+      .pending {
+        color: #ffc107;
+        font-weight: bold;
+      }
+
+      /* Responsive Design */
+      @media screen and (max-width: 768px) {
+        table {
+          font-size: 14px;
+        }
+
+        .approve-btn,
+        .reject-btn {
+          font-size: 12px;
+          padding: 6px 8px;
+        }
+      }
+      button {
+        margin: 10px 0 50px 20px;
+        padding: 4px 8px;
+        background-color: #253a03;
+        color: white;
+        border: none;
+        border-radius: 2px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Admin Panel: Manage Leave Requests</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Request ID</th>
+            <th>Employee ID</th>
+            <th>Leave Type</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Status</th>
+            <th>Reason</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% leaveRequests.forEach((request) => { %>
+          <tr>
+            <td><%= request.request_id %></td>
+            <td><%= request.employee_id %></td>
+            <td><%= request.leave_type %></td>
+            <td><%= request.start_date %></td>
+            <td><%= request.end_date %></td>
+            <td>
+              <span class="<%= request.status %>"><%= request.status %></span>
+            </td>
+            <td><%= request.reason || "N/A" %></td>
+            <td>
+              <% if (request.status === "pending") { %>
+              <!-- Approve Action -->
+              <form
+                method="POST"
+                action="/leave-requests/<%= request.request_id %>?_method=PATCH"
+                style="display: inline"
+              >
+                <input type="hidden" name="status" value="approved" />
+                <button type="submit" class="approve-btn">Approve</button>
+              </form>
+              <!-- Reject Action -->
+              <form
+                method="POST"
+                action="/leave-requests/<%= request.request_id %>?_method=PATCH"
+                style="display: inline"
+              >
+                <input type="hidden" name="status" value="rejected" />
+                <button type="submit" class="reject-btn">Reject</button>
+              </form>
+              <% } else { %>
+              <span class="<%= request.status %>"><%= request.status %></span>
+              <% } %>
+            </td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Receptionist Dashboard</title>
+    <link rel="stylesheet" href="reception.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Receptionist Dashboard</h1>
+      <div class="features">
+        <a href="/personal-info?employee_id=<%= employee_id %>" class="feature"
+          >See Personal Information</a
+        >
+        <a href="/change-password" class="feature">Change Password</a>
+        <a href="/leaverequests" class="feature">Apply Leave Request</a>
+        <a href="/service-requests" class="feature"
+          >Customer Services Request</a
+        >
+        <a href="customerCheckIn.html" class="feature">Customer Check-in</a>
+        <a href="customerCheckOut.html" class="feature">Customer Check-Out</a>
+        <a href="/available-rooms" class="feature">View All Available Rooms</a>
+        <a href="/rsearch" class="feature">Search Customer</a>
+        <a href="/checked-in-customers" class="feature"
+          >View All Check-in Customers</a
+        >
+      </div>
+    </div>
+  </body>
+</html>

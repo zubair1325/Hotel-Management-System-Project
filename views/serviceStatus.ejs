@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pending Service Requests</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #79826B;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #E3E3C4;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    text-align: center;
+    color: #556043;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+    color: #556043;
+}
+
+label {
+    font-size: 16px;
+    color: #556043;
+}
+
+input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    background-color: #556043;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #556043db;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+    color: #556043;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+.cancel-btn {
+    padding: 5px 10px;
+    font-size: 14px;
+    color: white;
+    background-color: #dc3545;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.cancel-btn:hover {
+    background-color: #c82333;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pending Service Requests</h1>
+        <form action="/fetch-requests" method="POST">
+            <label for="room_id">Filter by Room Number:</label>
+            <input type="text" id="room_id" name="room_id" placeholder="Enter Room Number">
+            <button type="submit">Filter</button>
+        </form>
+
+        <% if (requests && requests.length > 0) { %>
+            <h2>Pending Requests</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Request ID</th>
+                        <th>Booking ID</th>
+                        <th>Service ID</th>
+                        <th>Quantity</th>
+                        <th>Request Date</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% requests.forEach(request => { %>
+                        <tr>
+                            <td><%= request.request_id %></td>
+                            <td><%= request.booking_id %></td>
+                            <td><%= request.service_id %></td>
+                            <td><%= request.quantity %></td>
+                            <td><%= new Date(request.request_date).toLocaleString() %></td>
+                            <td><%= request.status %></td>
+                            <td>
+                                <% if (request.status === 'pending') { %>
+                                    <form action="/cancel-request" method="POST" style="display:inline;">
+                                        <input type="hidden" name="request_id" value="<%= request.request_id %>">
+                                        <button type="submit" class="cancel-btn">Cancel</button>
+                                    </form>
+                                <% } %>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p>No pending requests available.</p>
+        <% } %>
+    </div>
+</body>
+</html>

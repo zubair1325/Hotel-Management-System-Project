@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee Profile</title>
+    <style>
+      /* General Styles */
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #79826B;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      /* Profile Container */
+      .profile-container {
+        background-color: #E3E3C4;
+        width: 90%;
+        max-width: 800px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        padding: 20px 30px;
+      }
+
+      /* Header */
+      .profile-container h1 {
+        text-align: center;
+        color: #556043;
+        margin-bottom: 20px;
+        font-size: 24px;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      /* Profile Info */
+      .profile-info {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+      }
+
+      /* Individual Profile Fields */
+      .profile-info div {
+        padding: 10px;
+        background: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+      }
+
+      /* Field Title */
+      .profile-info div strong {
+        color: #555;
+        font-weight: bold;
+      }
+
+      /* Hover Effect */
+      .profile-info div:hover {
+        background-color: #f1f1f1;
+        transform: scale(1.02);
+        transition: 0.3s ease;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 600px) {
+        .profile-info {
+          grid-template-columns: 1fr;
+        }
+      }
+      button {
+        margin: 10px 0 0 20px;
+        padding: 4px 8px;
+        background-color: #253a03;
+        color: white;
+        border: none;
+        border-radius: 2px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="profile-container">
+      <h1>Employee Profile</h1>
+      <div class="profile-info">
+        <div><strong>Employee ID:</strong> <%= employee.employee_id %></div>
+        <div><strong>Name:</strong> <%= employee.name %></div>
+        <div><strong>Job Title:</strong> <%= employee.job_title %></div>
+        <div><strong>Department:</strong> <%= employee.department %></div>
+        <div><strong>Hire Date:</strong> <%= employee.hire_date %></div>
+        <div><strong>Salary:</strong> $<%= employee.salary %></div>
+        <div><strong>Phone Number:</strong> <%= employee.phone_number %></div>
+        <div><strong>Email:</strong> <%= employee.email %></div>
+        <div><strong>Address:</strong> <%= employee.address %></div>
+        <div><strong>Status:</strong> <%= employee.status %></div>
+        <div><strong>Date of Birth:</strong> <%= employee.date_of_birth %></div>
+        <div><strong>Gender:</strong> <%= employee.gender %></div>
+        <div>
+          <strong>Emergency Contact:</strong> <%= employee.emergency_contact %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

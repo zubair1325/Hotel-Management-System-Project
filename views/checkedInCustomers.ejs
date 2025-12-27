@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checked-In Customers</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #79826B;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #E3E3C4;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #556043;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+    color: #556043;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Customers Currently Checked In</h1>
+        
+        <% if (customers && customers.length > 0) { %>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Booking ID</th>
+                        <th>Customer ID</th>
+                        <th>Customer Name</th>
+                        <th>Room ID</th>
+                        <th>Room Number</th>
+                        <th>Check-In Date</th>
+                        <th>Check-Out Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% customers.forEach(customer => { %>
+                        <tr>
+                            <td><%= customer.booking_id %></td>
+                            <td><%= customer.customer_id %></td>
+                            <td><%= customer.customer_name %></td>
+                            <td><%= customer.room_id %></td>
+                            <td><%= customer.room_number %></td>
+                            <td><%= new Date(customer.check_in).toLocaleDateString() %></td>
+                            <td><%= new Date(customer.check_out).toLocaleDateString() %></td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p>No customers are currently checked in.</p>
+        <% } %>
+    </div>
+</body>
+</html>

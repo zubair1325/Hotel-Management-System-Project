@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Human Resource Dashboard</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #556043c8;
+        color: #333;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background: #e3e3c4;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #556043;
+      }
+
+      .features {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .feature {
+        display: block;
+        text-decoration: none;
+        padding: 15px;
+        background-color: #556043;
+        color: white;
+        text-align: center;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+
+      .feature:hover {
+        background-color: #556043dc;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Human Resource Dashboard</h1>
+      <div class="features">
+        <a href="/allemployees" class="feature"
+          >View All Employees</a
+        >
+        <a href="/addEmployee" class="feature"
+          >Add New Employee</a
+        >
+        <a href="/deleteEmployee" class="feature"
+          >Remove Employees</a
+        >
+        <a href="/updateEmployee" class="feature"
+          >Update Employee Info</a
+        >
+        <a href="/leaverequests" class="feature"
+          >Apply Leave (For MySelf)</a
+        >
+        <a href="/admin/leave-requests" class="feature"
+          >Approve Leave</a
+        >
+        <a href="/rooms-update" class="feature">Create New Room</a>
+        <a href="/change-password" class="feature">Change My Password</a>
+      </div>
+    </div>
+  </body>
+</html>

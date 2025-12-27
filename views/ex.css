@@ -1,0 +1,484 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body,
+html {
+  height: 100%;
+  width: 100%;
+  background-color: #f7f7ee;
+}
+
+.page1 {
+  height: 70vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.page1 .nav {
+  height: 12vw;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  padding: 2vw 1.9vw;
+}
+.navContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav svg {
+  fill: #434b34;
+  width: 10vw;
+  font-weight: 900;
+  object-fit: cover;
+  object-position: center;
+  margin-left: 15vw;
+}
+.navContent i {
+  transition: ease-in 0.3s;
+  color: #434b34;
+  font-weight: 800;
+  font-size: 2.8vw;
+  cursor: pointer;
+  opacity: 1;
+}
+.navContent i:hover {
+  color: #8a958a;
+}
+.navRight button {
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 0.8vw 1.5vw;
+  background-color: #434b34;
+  border: none;
+}
+.navRight a {
+  font-family: sans-serif;
+  font-size: 1vw;
+  color: white;
+  cursor: pointer;
+  transition: ease 0.3s;
+  opacity: 1;
+  text-decoration: none;
+}
+.navContent button:nth-of-type(1) {
+  background-color: white;
+  border: 1px solid #434b34;
+  color: #434b34;
+  margin-right: 0.8vw;
+}
+.navbtn1 a {
+  color: #434b34;
+}
+.navContent button:nth-of-type(1):hover {
+  background-color: #e3e3c4;
+}
+@media (max-width: 500px) {
+  .icon {
+    padding-bottom: 5vh;
+    padding-left: 1vh;
+  }
+
+  .navRight {
+    padding-bottom: 5vh;
+  }
+  .nav svg {
+    padding-top: 2vh;
+    width: 130px;
+  }
+
+  .navContent i {
+    font-size: 4vh;
+  }
+
+  .navRight a {
+    font-size: 2.3vh;
+  }
+  .navContent button:nth-of-type(2) {
+    display: none;
+  }
+  .navbtn1 a {
+    color: #434b34;
+  }
+}
+.txt {
+  margin-top: 15vw;
+}
+.txt h1 {
+  color: #434b34;
+  font-size: 4vw;
+  font-family: pp woodland;
+  font-weight: 400;
+  line-height: 4.8vw;
+  text-align: center;
+}
+.page2 {
+  height: 90vh;
+  width: 100%;
+  color: #434b34;
+}
+.page2Top,
+.page2Btm {
+  display: flex;
+  align-items: center;
+  margin-left: 22vw;
+}
+.page2Btm {
+  margin-left: 42vw;
+}
+.page2TopLeft,
+.page2TopRight,
+.page2BtmLeft,
+.page2BtmRight {
+  height: 20vw;
+  width: 20vw;
+  border: 1px solid #434b348e;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+.page2TopLeft:hover,
+.page2TopRight:hover,
+.page2BtmLeft:hover,
+.page2BtmRight:hover {
+  background-color: #e3e3c4;
+}
+.page2TopLeft {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+.page2TopRight {
+  border-top-right-radius: 20px;
+}
+.page2BtmLeft {
+  border-bottom-left-radius: 20px;
+}
+.page2BtmRight {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.page2 h1 {
+  font-family: PP Woodland;
+  font-size: 2.4rem;
+  font-weight: 500;
+  padding-top: 1.2vw;
+}
+.page2 .containerP {
+  font-family: DM Sans;
+  padding-bottom: 1vw;
+}
+.page2 .containerP p {
+  margin: 0;
+  padding: 0;
+}
+.page2 p:hover {
+  border-bottom: 1px solid #434b34;
+  cursor: pointer;
+}
+.page3 {
+  height: 170vh;
+  width: 100%;
+  color: rgba(0, 0, 0, 0.685);
+  font-family: DM Sans;
+  background-color: red;
+}
+.pag3Adress {
+  height: 80vh;
+  width: 100%;
+}
+.pag3Adress h1 {
+  padding-top: 10vw;
+  font-weight: 500;
+}
+.pag3Adress h1,
+p {
+  margin-left: 50%;
+}
+.pag3Adress p {
+  margin-top: 2vw;
+  width: 30vw;
+}
+.page3Card {
+  height: 80vh;
+  width: 100%;
+  color: #434b34;
+}
+.page3CardTop,
+.page3CardBtm {
+  display: flex;
+  align-items: center;
+  margin-left: 25vw;
+}
+.page3CardBtm {
+  margin-left: 45vw;
+}
+.page3CardTopLeft,
+.page3CardTopRight,
+.page3CardBtmLeft {
+  height: 20vw;
+  width: 20vw;
+  border: 1px solid #434b348e;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+.page3CardTopLeft:hover,
+.page3CardTopRight:hover,
+.page3CardBtmLeft:hover {
+  background-color: #e3e3c4;
+}
+.page3CardTopLeft {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+.page3CardTopRight {
+  border-top-right-radius: 20px;
+}
+.page3CardBtmLeft {
+  border-bottom-left-radius: 20px;
+}
+.page3CardBtmRight {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.page3Card h1 {
+  font-family: PP Woodland;
+  font-size: 2.4rem;
+  font-weight: 500;
+  padding-top: 1.2vw;
+}
+.page3Card .containerP {
+  font-family: DM Sans;
+  padding-bottom: 1vw;
+  width: 100%;
+}
+.page3Card .containerP p {
+  margin: 0;
+  padding: 0;
+  padding-left: 20%;
+}
+
+/* .page4 {
+  height: 150vh;
+  width: 100%;
+  margin: 0;
+  padding: 1px;
+  background-color: #5b6647;
+  margin: 0;
+  padding: 0;
+  padding-top: 1.5vw;
+}
+
+.page4Top {
+  height: 25%;
+  width: 100%;
+}
+.page4Top h1 {
+  color: #e3e3c4;
+}
+.page4Top .txt {
+  margin-top: 6vw;
+}
+.page4Top p {
+  color: rgba(255, 255, 255, 0.789);
+  width: 40vw;
+  margin: 2vw 0 0 32vw;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.page4Btm {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  gap: 2%;
+  overflow: hidden;
+}
+.page4BtmLeft,
+.page4BtmRight,
+.page4BtmMid {
+  height: 100%;
+  width: 32%;
+}
+.page4BtmLeft {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.page4BtmLeft img {
+  height: 40%;
+  width: 80%;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1vw;
+}
+.page4BtmMid {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+}
+.page4BtmMid img {
+  height: 90%;
+  width: 90%;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1vw;
+}
+.page4BtmRight {
+  display: flex;
+  justify-content: center;
+}
+.page4BtmRight img {
+  height: 40%;
+  width: 80%;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-top: 4.5vw;
+}
+.page4Btn {
+  height: 25%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 500;
+  font-family: DM Sans;
+}
+.page4Btn i {
+  background-color: #f7f7ee;
+  color: #434b34;
+  padding: 0.1vw 1vw;
+  border-radius: 15px;
+  cursor: pointer;
+} */
+
+/* .page5 {
+  height: 130vh;
+  width: 100%;
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+.page5 img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.page5Container {
+  height: 15vw;
+  width: 93%;
+  background-color: #586346;
+  position: absolute;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-left: 3vw;
+  margin-right: 13vw;
+  border-radius: 20px;
+}
+.page5Container h1 {
+  padding: 0;
+  margin: 0;
+  font-family: PP Woodland;
+  color: #e3e3c4;
+  font-size: 3vw;
+  padding-left: 2vw;
+  white-space: nowrap;
+}
+.page5Container p {
+  font-family: DM Sans;
+  color: #f7f7ee;
+  font-size: 1.8vw;
+  cursor: pointer;
+  padding-right: 2vw;
+  white-space: nowrap;
+}
+.page5Container i:hover {
+  font-size: 2.1vw;
+}
+.page5Container i {
+  background-color: #f7f7ee;
+  color: #434b34;
+  padding: 0.1vw 1vw;
+  border-radius: 15px;
+} */
+
+/* .page6 {
+  height: 100vh;
+  width: 100%;
+  background-color: #022c42;
+  font-family: sans-serif;
+  overflow-x: hidden;
+}
+.page6 h4 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.page6Top {
+  height: 32%;
+  width: 100%;
+}
+.page6Top svg {
+  width: 9vw;
+  margin-left: 43%;
+  fill: #e3e3c4;
+}
+.page6Mid {
+  height: 32%;
+  width: 100%;
+}
+.page6Mid hr {
+  background-color: black;
+}
+.page6MidData {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  margin-bottom: 1vw;
+}
+.page6MidData h4:nth-of-type(2) {
+  margin-left: -12vw;
+}
+.page6Btm {
+  height: 22%;
+  width: 100%;
+}
+.page6BtmUp {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  margin-bottom: 1vw;
+}
+.page6BtmDwn {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  margin-top: 1vw;
+}
+.page6BtmDwn h4:nth-of-type(2) {
+  margin-left: 10vw;
+}
+.page6Mid,
+.page6Btm {
+  padding: 0 3vw 0 3vw;
+}
+.page6Nav {
+  background-color: #03364f;
+  height: 14%;
+  width: 100%;
+  color: white;
+  padding: 0;
+  margin: 0;
+} */

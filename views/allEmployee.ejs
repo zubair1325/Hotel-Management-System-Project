@@ -1,0 +1,88 @@
+<!-- # allEmployee -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee List</title>
+    <style>
+      body {
+        background-color: #556043;
+        overflow-x: hidden;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+      th {
+        background-color: #556043;
+        text-align: center;
+        color: white;
+      }
+      td {
+        background-color: #55604366;
+        color: white;
+      }
+      button {
+        margin: 10px 0 0 20px;
+        padding: 4px 8px;
+        background-color: #253a03;
+        color: white;
+        border: none;
+        border-radius: 2px;
+        cursor: pointer;
+      }
+      h1 {
+        text-align: center;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Employee List</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Employee ID</th>
+          <th>Name</th>
+          <th>Job Title</th>
+          <th>Department</th>
+          <th>Hire Date</th>
+          <th>Salary</th>
+          <th>Phone Number</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>Status</th>
+          <th>Date of Birth</th>
+          <th>Gender</th>
+          <th>Emergency Contact</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% employees.forEach(employee => { %>
+        <tr>
+          <td><%= employee.employee_id %></td>
+          <td><%= employee.name %></td>
+          <td><%= employee.job_title %></td>
+          <td><%= employee.department %></td>
+          <td><%= employee.hire_date %></td>
+          <td><%= employee.salary %></td>
+          <td><%= employee.phone_number %></td>
+          <td><%= employee.email %></td>
+          <td><%= employee.address %></td>
+          <td><%= employee.status %></td>
+          <td><%= employee.date_of_birth %></td>
+          <td><%= employee.gender %></td>
+          <td><%= employee.emergency_contact %></td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </body>
+</html>

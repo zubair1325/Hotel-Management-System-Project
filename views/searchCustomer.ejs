@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Customer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6e6c9;
+            color: #3c4a37;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h2 {
+            color: #3c4a37;
+        }
+
+        form {
+            margin-top: 1rem;
+        }
+
+        input[type="email"] {
+            padding: 10px;
+            width: 260px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4a5d3f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-left: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #3c4a37;
+        }
+
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f5f5dc;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .result p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>Search Customer by Email</h2>
+
+    <form action="/search-customer" method="GET">
+        <input type="email" name="email" placeholder="Enter email address" required />
+        <button type="submit">Search</button>
+    </form>
+
+    <% if (searched) { %>
+        <% if (customer) { %>
+            <div class="result">
+                <h3>Customer Info:</h3>
+                <p><strong>Customer ID:</strong> <%= customer.customer_id  %></p>
+                <p><strong>Name:</strong> <%= customer.name %></p> 
+                <p><strong>Email:</strong> <%= customer.email %></p> 
+                <p><strong>Phone:</strong> <%= customer.phone_number  %></p>
+                <p><strong>Address:</strong> <%= customer.address %></p>
+            </div>
+        <% } else { %>
+            <div class="result">
+                <p>No customer found with that email.</p>
+            </div>
+        <% } %>
+    <% } %>
+</body>
+</html>

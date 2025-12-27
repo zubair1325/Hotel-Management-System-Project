@@ -1,0 +1,188 @@
+<!-- addNewEmployee -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Employee</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #e3e3c4;
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 180vh;
+        /* margin-top: 2vw; */
+      }
+
+      .container {
+        max-width: 500px;
+        width: 100%;
+        background: #f2f2e4;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        text-align: center;
+        color: #444;
+        margin-bottom: 20px;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+
+      .form-group textarea {
+        resize: none;
+      }
+
+      .btn {
+        width: 100%;
+        background-color: #677156;
+        color: white;
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .btn:hover {
+        background-color: #677156c5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Update Employee Information</h1>
+      <form
+        id="employeeForm"
+        method="post"
+        action="/update/<%=result.employee_id%>?_method=PATCH"
+      >
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value="<%=result.name%>"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="job_title">Job Title</label>
+          <input
+            type="text"
+            id="job_title"
+            name="job_title"
+            value="<%=result.job_title%>"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="department">Department (hr,other,receptionist)</label>
+          <input
+            type="text"
+            id="department"
+            name="department"
+            value="<%=result.department%>"
+          />
+        </div>
+        <div class="form-group">
+          <label for="hire_date">Hire Date</label>
+          <input type="date" id="hire_date" name="hire_date" />
+        </div>
+        <div class="form-group">
+          <label for="salary">Salary</label>
+          <input
+            type="number"
+            id="salary"
+            name="salary"
+            step="1"
+            value="<%=result.salary%>"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="phone_number">Phone Number</label>
+          <input
+            type="text"
+            id="phone_number"
+            name="phone_number"
+            value="<%=result.phone_number%>"
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            value="<%=result.email%>"
+          />
+        </div>
+        <div class="form-group">
+          <label for="address">Address</label>
+          <textarea id="address" name="address" rows="3">
+<%=result.address%></textarea
+          >
+        </div>
+        <div class="form-group">
+          <label for="status">Status</label>
+          <select id="status" name="status">
+            <option value="active">Active</option>
+            <option value="inactive">Inactive</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="date_of_birth">Date of Birth</label>
+          <input type="date" id="date_of_birth" name="date_of_birth" " />
+        </div>
+        <div class="form-group">
+          <label for="gender">Gender</label>
+          <select id="gender" name="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="emergency_contact">Emergency Contact</label>
+          <input
+            type="text"
+            id="emergency_contact"
+            name="emergency_contact"
+            value="<%=result.emergency_contact%>"
+          />
+        </div>
+        <button type="submit" class="btn">Submit</button>
+      </form>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Services</title>
+  <style>
+    /* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background: linear-gradient(to bottom right, #f4f4f4, #e8e8e8);
+  color: #333;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* Header Styles */
+header {
+  background-color: #0078d7;
+  color: white;
+  padding: 2rem 1rem;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+/* Main Content Styles */
+main {
+  margin: 2rem auto;
+  max-width: 800px;
+  text-align: center;
+}
+
+.service-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.service-list li {
+  margin: 1rem 0;
+}
+
+.service-list a {
+  display: block;
+  padding: 1rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #0078d7;
+  text-decoration: none;
+  background-color: #f9f9f9;
+  border: 2px solid #0078d7;
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
+
+.service-list a:hover {
+  background-color: #0078d7;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .service-list a {
+    font-size: 1rem;
+    padding: 0.75rem;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Hotel Services</h1>
+  </header>
+  <main>
+    <ul class="service-list">
+      <li><a href="room-service.html">Room Service</a></li>
+      <li><a href="laundry-service.html">Laundry Service</a></li>
+      <li><a href="spa-access.html">Spa Access</a></li>
+      <li><a href="gym-access.html">Gym Access</a></li>
+      <li><a href="wifi.html">Wi-Fi</a></li>
+      <li><a href="breakfast-buffet.html">Breakfast Buffet</a></li>
+      <li><a href="parking.html">Parking</a></li>
+      <li><a href="airport-shuttle.html">Airport Shuttle</a></li>
+      <li><a href="car-rental.html">Car Rental</a></li>
+    </ul>
+  </main>
+</body>
+</html>
