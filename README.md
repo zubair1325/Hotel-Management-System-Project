@@ -17,10 +17,13 @@ steps
         });
 
    ************ if you are not using TiDB to store data then remove this **************
-   4. finally you can run the project using node 'index.js'
+4. finally you can run the project using node 'index.js'
   
 
 # What did I use on this Project?
 1. HTML, CSS, JS, GSAP
 2. Node, Express
 3. mySQL
+
+   
+<img width="624" height="223" alt="image" src="https://github.com/user-attachments/assets/7774868d-1787-4f83-8f64-d7f46f2e483b" />
