@@ -28,12 +28,7 @@ const connection = mysql.createConnection({
   }
 });
 
-// connection.query('SELECT DATABASE(), CURRENT_USER(), VERSION();', (err, rows) => {
-//   console.log("--- Debug Info ---");
-//   console.log("Connected to DB:", rows[0]['DATABASE()']);
-//   console.log("Authenticated as:", rows[0]['CURRENT_USER()']);
-//   console.log("------------------");
-// });
+
 
 let p = "/";
 app.use((req,res,next)=>{
@@ -65,43 +60,7 @@ function allStaticRoute() {
   app.get("/discoverMljet", (req, res) => {
     res.sendFile(path.join(__dirname, "views", "discoverMljet.html"));
   });
-  // app.get("/login", (req, res) => {
-  //   res.sendFile(path.join(__dirname, "views", "login.html"));
-  // });
 
-  // app.post("/admin", (req, res) => {
-  //   console.log("Request body:", req.body); // Debugging
-  //   const { username, password } = req.body;
-
-  //   console.log("Username:", username);
-  //   console.log("Password:", password);
-
-  //   try {
-  //     const query = `
-  //           SELECT pass
-  //           FROM employee_login
-  //           WHERE employee_id = (
-  //               SELECT employee_id
-  //               FROM employees
-  //               WHERE email = ?
-  //           )
-  //       `;
-
-  //     connection.query(query, [username], (error, results) => {
-  //       const hashedPassword = results[0].pass;
-  //       if (hashedPassword === password) {
-  //         console.log("password  match");
-  //         res.send("welcome");
-  //       }
-
-  //       if (hashedPassword !== password) {
-  //         res.sendFile(path.join(__dirname, "views", "notMatch.html"));
-  //       }
-  //     });
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // });
 }
 allStaticRoute();
 
@@ -297,9 +256,9 @@ function dynamicRoute() {
       date_of_birth,
       gender,
       emergency_contact,
-    } = req.body; // Extract updated data from the request body
+    } = req.body; 
 
-    // Prepare the SQL query to update the employee details
+   
     let q = `
         UPDATE employees 
         SET 
@@ -355,7 +314,7 @@ function dynamicRoute() {
     });
   });
 
-  // Route: Submit a New Leave Request
+
   app.post("/leaverequests", (req, res) => {
     const { employee_id, leave_type, start_date, end_date, reason } = req.body;
 
@@ -388,7 +347,7 @@ function dynamicRoute() {
     });
   });
 
-  // Admin Route: Approve or Reject Leave Request
+  
   app.patch("/leave-requests/:id", (req, res) => {
     const requestId = req.params.id;
     const { status } = req.body;
@@ -422,7 +381,7 @@ function dynamicRoute() {
     });
   });
 
-  // Route to update room details
+  
   app.put("/rooms-update/:id", (req, res) => {
     const { id } = req.params;
     const { room_type, room_status, price_per_night, availability } = req.body;
@@ -441,7 +400,7 @@ function dynamicRoute() {
     );
   });
 
-  // Route to delete a room
+
   app.delete("/rooms-update/:id", (req, res) => {
     const { id } = req.params;
     const query = "DELETE FROM Rooms WHERE room_id = ?";
@@ -536,7 +495,7 @@ function dynamicRoute() {
 
       const customer_id = results[0].customer_id;
 
-      // Step 2: Insert booking into the Bookings table
+      
       const insertBookingQuery = `
             INSERT INTO Bookings (customer_id, room_id, check_in, check_out, total_cost, status)
             VALUES (?, ?, ?, ?, ?, ?)
@@ -577,7 +536,6 @@ function dynamicRoute() {
   app.post("/add-customer", (req, res) => {
     const { name, email, phone_number, address } = req.body;
 
-    // SQL query to insert customer data into the Customers table
     const sql = `
         INSERT INTO Customers (name, email, phone_number, address)
         VALUES (?, ?, ?, ?)
@@ -601,8 +559,6 @@ function dynamicRoute() {
 
   app.post("/cancel-booking", (req, res) => {
     const { email } = req.body;
-
-    // Step 1: Retrieve the customer_id and active booking details using the email
     const getCustomerBookingQuery = `
       SELECT b.booking_id, b.room_id 
       FROM Bookings b
